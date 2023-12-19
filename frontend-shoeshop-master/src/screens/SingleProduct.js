@@ -3,20 +3,24 @@ import Header from "./../components/Header";
 import Rating from "../components/homeComponents/Rating";
 import { Link } from "react-router-dom";
 import Message from "./../components/LoadingError/Error";
-import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { listProductDetails } from "../Redux/Actions/ProductActions";
 
 
 const SingleProduct = ({ match }) => {
 
-  const [product, setProduct] = useState({});
+  const productId = match.params.id;
+  const dispatch = useDispatch()
+
+
+  const productDetails = useSelector((state) => state.productDetails);
+  console.log(productDetails)
+  const { loading, error, product } = productDetails
+
 
   useEffect(() => {
-    const fetchProduct = async () => {
-      const { data } = await axios.get(`/api/products/${match.params.id}`);
-      setProduct(data);
-    }
-    fetchProduct();
-  }, [match])
+    dispatch(listProductDetails(productId))
+  }, [dispatch, productId]);
 
   return (
     <>
