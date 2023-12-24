@@ -4,6 +4,8 @@ import ProfileTabs from "../components/profileComponents/ProfileTabs";
 import Orders from "./../components/profileComponents/Orders";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserDetails } from "../Redux/Actions/UserActions";
+import moment from "moment";
+
 
 const ProfileScreen = () => {
   window.scrollTo(0, 0);
@@ -37,7 +39,7 @@ const ProfileScreen = () => {
                     <strong>{userInfo.name}</strong>
                   </h5>
                   <span className="author-card-position">
-                    <>Joined Dec 12 2021</>
+                    <>Joined {moment(userInfo.createdAt).format('LL')}</>
                   </span>
                 </div>
               </div>
