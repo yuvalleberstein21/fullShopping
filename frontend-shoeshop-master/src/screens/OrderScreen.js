@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Header from "./../components/Header";
 import { PayPalButton } from "react-paypal-button-v2";
 import { useDispatch, useSelector } from "react-redux";
-import { getOrderDetails } from "../Redux/Actions/OrderActions";
+import { getOrderDetails, payOrder } from "../Redux/Actions/OrderActions";
 import Loading from "../components/LoadingError/Loading";
 import Message from "../components/LoadingError/Error";
 import moment from "moment";
@@ -61,7 +61,10 @@ const OrderScreen = ({ match }) => {
 
   }, [dispatch, orderId, successPay, order]);
 
-
+  const successPaymentHandler = (paymentResult) => {
+    console.log(paymentResult);
+    dispatch(payOrder(orderId, paymentResult));
+  }
 
   return (
     <>
@@ -233,9 +236,24 @@ const OrderScreen = ({ match }) => {
                         </tr>
                       </tbody>
                     </table>
-                    <div className="col-12">
-                      <PayPalButton amount={345} />
-                    </div>
+                    {
+                      !order.isPaid && (
+                        <div className="col-12">
+                          {loadingPay && <Loading />}
+                          {
+                            !sdkReady ? (
+                              <Loading />
+                            )
+                              :
+                              (
+                                <PayPalButton amount={order.totalPrice} onSuccess={successPaymentHandler} />
+                              )
+                          }
+
+                        </div>
+                      )
+                    }
+
                   </div>
                 </div>
               </>

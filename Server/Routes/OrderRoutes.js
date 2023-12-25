@@ -41,7 +41,7 @@ orderRouter.post("/", protect, asyncHandler(
 ));
 
 
-// GET ORDER
+// GET ORDER BY ID
 orderRouter.get("/:id", protect, asyncHandler(
     async (req, res) => {
         const order = await Order.findById(req.params.id).populate(
@@ -64,7 +64,7 @@ orderRouter.put("/:id/pay", protect, asyncHandler(
         const order = await Order.findById(req.params.id);
 
         if (order) {
-            order.isPaiod = true;
+            order.isPaid = true;
             order.paidAt = Date.now();
             order.paymentResult = {
                 id: req.body.id,
@@ -81,5 +81,15 @@ orderRouter.put("/:id/pay", protect, asyncHandler(
         }
     }
 ));
+
+
+// USER LOGIN ORDERS
+orderRouter.get("/", protect, asyncHandler(
+    async (req, res) => {
+        const order = await Order.find({ user: req.user._id }).sort({ _id: -1 });
+        res.json(order);
+    }
+));
+
 
 export default orderRouter;
