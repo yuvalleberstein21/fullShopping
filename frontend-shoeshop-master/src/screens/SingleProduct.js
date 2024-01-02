@@ -138,7 +138,7 @@ const SingleProduct = ({ history, match }) => {
                   </div>
                   <div className="col-md-6">
                     <h6>WRITE A CUSTOMER REVIEW</h6>
-                    <div className="my-4">
+                    <div className="my-2">
                       {loadingCreateReview && <Loading />}
                       {errorCreateReview && <Message variant="alert-danger">{errorCreateReview}</Message>}
                     </div>

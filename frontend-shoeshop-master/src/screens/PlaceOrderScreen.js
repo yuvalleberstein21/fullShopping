@@ -190,7 +190,7 @@ const PlaceOrderScreen = ({ history }) => {
             </table>
             {
               cart.cartItems.length === 0 ? null : (
-                <button type="submit" onClick={placeOrderHandler}>
+                <button style={{ background: "#126a4f" }} type="submit" onClick={placeOrderHandler}>
                   PLACE ORDER
                 </button>
               )

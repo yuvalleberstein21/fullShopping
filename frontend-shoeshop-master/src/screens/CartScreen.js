@@ -54,7 +54,7 @@ const CartScreen = ({ match, location, history }) => {
             <>
               <div className=" alert alert-info text-center mt-3">
                 Total Cart Products
-                <Link className="text-success mx-2" to="/cart">
+                <Link className="text-dark mx-2" to="/cart">
                   ({cartItems.length})
                 </Link>
               </div>
@@ -107,7 +107,7 @@ const CartScreen = ({ match, location, history }) => {
                 {
                   total > 0 && (
                     <div className="col-md-6 d-flex justify-content-md-end mt-3 mt-md-0">
-                      <button onClick={checkOutHandler}>
+                      <button className="button-cart" onClick={checkOutHandler}>
                         Checkout
                       </button>
                     </div>

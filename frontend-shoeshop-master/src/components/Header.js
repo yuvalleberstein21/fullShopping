@@ -209,10 +209,6 @@ const Header = () => {
           </div>
         </div>
       </div>
-      {
-        keyword === '' && (<Banner />)
-      }
-
     </div>
   );
 };

@@ -6,14 +6,17 @@ import CalltoActionSection from "./../components/homeComponents/CalltoActionSect
 import Footer from "./../components/Footer";
 import Banner from "../components/homeComponents/Banner";
 
-const HomeScreen = ({ match }) => {
+const HomeScreen = ({ match, history }) => {
   window.scrollTo(0, 0);
   const keyword = match.params.keyword;
   const pagenumber = match.params.pagenumber;
+  console.log(history)
   return (
     <div>
       <Header />
-
+      {
+        history.location.pathname === '/' && <Banner />
+      }
       <ShopSection keyword={keyword} pagenumber={pagenumber} />
       <CalltoActionSection />
       <ContactInfo />

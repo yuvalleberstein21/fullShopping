@@ -5,11 +5,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { login } from "../Redux/Actions/UserActions";
 import Message from "../components/LoadingError/Error";
 import Loading from "../components/LoadingError/Loading";
+import { BiHide } from "react-icons/bi";
+import { IoEyeOutline } from "react-icons/io5";
 
 const Login = ({ location, history }) => {
   window.scrollTo(0, 0);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -30,6 +33,11 @@ const Login = ({ location, history }) => {
     dispatch(login(email, password));
   }
 
+  const handleTogglePassword = (e) => {
+    e.preventDefault();
+    setShowPassword((prev) => !prev);
+  };
+
   return (
     <>
       <Header />
@@ -38,7 +46,16 @@ const Login = ({ location, history }) => {
         {loading && <Loading />}
         <form className="Login col-md-8 col-lg-4 col-11" onSubmit={submitHandler}>
           <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-          <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+          <input type={showPassword ? "text" : "password"} placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+          <span onClick={handleTogglePassword} style={{
+            position: 'absolute',
+            right: '50px',
+            top: '47%',
+            transform: 'translateY(-50%)',
+            cursor: 'pointer',
+          }}>
+            {showPassword ? <BiHide /> : <IoEyeOutline />}
+          </span>
           <button type="submit">Login</button>
           <p>
             <Link to={redirect ? `/register?redirect=${redirect}` : "/register"}>Create Account</Link>

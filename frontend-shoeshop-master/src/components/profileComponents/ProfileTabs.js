@@ -59,7 +59,7 @@ const ProfileTabs = () => {
       {error && <Message variant="alert-danger">{error}</Message>}
       {loading && <Loading />}
       {updateLoading && <Loading />}
-      <form className="row  form-container" onSubmit={submitHandler}>
+      <form className="row form-container" onSubmit={submitHandler}>
         <div className="col-md-6">
           <div className="form">
             <label for="account-fn">UserName</label>
