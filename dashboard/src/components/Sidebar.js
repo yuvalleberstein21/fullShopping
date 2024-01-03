@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Sidebar = () => {
     return (
@@ -11,59 +12,38 @@ const Sidebar = () => {
                         </a>
                         <ul className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                             <li className="nav-item">
-                                <a href="#" className="nav-link align-middle px-0">
-                                    <i className="fs-4 bi-house" style={{ color: "gray" }}></i> <span className="ms-1 d-none d-sm-inline" style={{ fontWeight: "bold", color: "darkblue" }}>Home</span>
-                                </a>
+                                <Link to={"/"} className="nav-link align-middle px-0">
+                                    <i className="fs-4 bi-house" style={{ color: "gray" }}></i> <span className="ms-1 d-none d-sm-inline" style={{ fontWeight: "bold", color: "darkblue" }}>Dashboard</span>
+                                </Link>
                             </li>
                             <li>
-                                <a href="#submenu1" data-bs-toggle="collapse" className="nav-link px-0 align-middle">
-                                    <i className="fs-4 bi-speedometer2" style={{ color: "gray" }}></i> <span className="ms-1 d-none d-sm-inline" style={{ fontWeight: "bold", color: "darkblue" }}>Dashboard</span> </a>
+                                <Link to={"/products"} className="nav-link px-0 align-middle">
+                                    <i className="fs-4 bi bi-bag" style={{ color: "gray" }}></i> <span className="ms-1 d-none d-sm-inline" style={{ fontWeight: "bold", color: "darkblue" }}>Products</span>
+                                </Link>
                                 <ul className="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
-                                    <li className="w-100">
-                                        <a href="#" className="nav-link px-0"> <span className="d-none d-sm-inline">Item</span> 1 </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" className="nav-link px-0"> <span className="d-none d-sm-inline">Item</span> 2 </a>
-                                    </li>
+
                                 </ul>
+                            </li>
+                            <li>
+                                <Link to={"/addproduct"} className="nav-link px-0 align-middle">
+                                    <i className="bi bi-cart-plus" style={{ color: "gray" }}></i> <span className="ms-1 d-none d-sm-inline" style={{ fontWeight: "bold", color: "darkblue" }}>Add product</span></Link>
+                            </li>
+                            <li>
+                                <Link to={"/category"} className="nav-link px-0 align-middle ">
+                                    <i className="bi bi-menu-button-wide" style={{ color: "gray" }}></i> <span className="ms-1 d-none d-sm-inline" style={{ fontWeight: "bold", color: "darkblue" }}>Categories</span></Link>
+                            </li>
+                            <li>
+                                <Link to={"/orders"} data-bs-toggle="collapse" className="nav-link px-0 align-middle">
+                                    <i className="fs-4 bi bi-bag-check" style={{ color: "gray" }}></i> <span className="ms-1 d-none d-sm-inline" style={{ fontWeight: "bold", color: "darkblue" }}>Orders</span> </Link>
+
+                            </li>
+                            <li>
+                                <Link to={"/users"} className="nav-link px-0 align-middle">
+                                    <i className="fs-4 bi-people" style={{ color: "gray" }}></i> <span className="ms-1 d-none d-sm-inline" style={{ fontWeight: "bold", color: "darkblue" }}>Users</span> </Link>
                             </li>
                             <li>
                                 <a href="#" className="nav-link px-0 align-middle">
-                                    <i className="bi bi-table" style={{ color: "gray" }}></i> <span className="ms-1 d-none d-sm-inline" style={{ fontWeight: "bold", color: "darkblue" }}>Orders</span></a>
-                            </li>
-                            <li>
-                                <a href="#submenu2" data-bs-toggle="collapse" className="nav-link px-0 align-middle ">
-                                    <i className="fs-4 bi-bootstrap" style={{ color: "gray" }}></i> <span className="ms-1 d-none d-sm-inline" style={{ fontWeight: "bold", color: "darkblue" }}>Bootstrap</span></a>
-                                <ul className="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
-                                    <li className="w-100">
-                                        <a href="#" className="nav-link px-0"> <span className="d-none d-sm-inline">Item</span> 1</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" className="nav-link px-0"> <span className="d-none d-sm-inline">Item</span> 2</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#submenu3" data-bs-toggle="collapse" className="nav-link px-0 align-middle">
-                                    <i className="fs-4 bi-grid" style={{ color: "gray" }}></i> <span className="ms-1 d-none d-sm-inline" style={{ fontWeight: "bold", color: "darkblue" }}>Products</span> </a>
-                                <ul className="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
-                                    <li className="w-100">
-                                        <a href="#" className="nav-link px-0"> <span className="d-none d-sm-inline">Product</span> 1</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" className="nav-link px-0"> <span className="d-none d-sm-inline">Product</span> 2</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" className="nav-link px-0"> <span className="d-none d-sm-inline">Product</span> 3</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" className="nav-link px-0"> <span className="d-none d-sm-inline">Product</span> 4</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#" className="nav-link px-0 align-middle">
-                                    <i className="fs-4 bi-people" style={{ color: "gray" }}></i> <span className="ms-1 d-none d-sm-inline" style={{ fontWeight: "bold", color: "darkblue" }}>Customers</span> </a>
+                                    <i className="fs-4 bi-people" style={{ color: "gray" }}></i> <span className="ms-1 d-none d-sm-inline" style={{ fontWeight: "bold", color: "darkblue" }}>Sellers</span> </a>
                             </li>
                         </ul>
                         <hr />
@@ -83,9 +63,6 @@ const Sidebar = () => {
                             </ul>
                         </div>
                     </div>
-                </div>
-                <div className="col py-3">
-                    Content area...
                 </div>
             </div>
         </div>
