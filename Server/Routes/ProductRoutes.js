@@ -33,6 +33,7 @@ productRoute.get("/all", protect, admin, asyncHandler(
         res.json(products);
     }));
 
+
 // GET SINGLE PRODUCT
 productRoute.get("/:id", asyncHandler(
     async (req, res) => {
@@ -75,6 +76,20 @@ productRoute.post("/:id/review", protect, asyncHandler(
 
             await product.save();
             res.status(201).json({ message: "Reviewed Added" })
+        } else {
+            res.status(404);
+            throw new Error("Product not found");
+        }
+    }
+));
+
+// DELETE PRODUCT
+productRoute.delete("/:id", protect, admin, asyncHandler(
+    async (req, res) => {
+        const product = await Product.findById(req.params.id);
+        if (product) {
+            await Product.deleteOne({ _id: req.params.id });
+            res.json({ message: "Product deleted successfully" });
         } else {
             res.status(404);
             throw new Error("Product not found");
