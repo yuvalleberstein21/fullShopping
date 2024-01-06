@@ -118,9 +118,29 @@ productRoute.post("/", protect, admin, asyncHandler(
                 res.status(400);
                 throw new Error("Invalid product data");
             }
+        }
+    }
+));
 
 
+// EDIT PRODUCT
+productRoute.put("/:id", protect, admin, asyncHandler(
+    async (req, res) => {
+        const { name, price, description, image, countInStock } = req.body;
+        const product = await Product.findById(req.params.id);
+        if (product) {
+            product.name = name || product.name;
+            product.price = price || product.price;
+            product.description = description || product.description;
+            product.image = image || product.image;
+            product.countInStock = countInStock || product.countInStock;
 
+            const updatedProduct = await product.save();
+            res.json(updatedProduct);
+
+        } else {
+            res.status(404);
+            throw new Error("Product not found");
         }
     }
 ));
