@@ -123,7 +123,7 @@ productRoute.post("/", protect, admin, asyncHandler(
 ));
 
 
-// EDIT PRODUCT
+// UPDATE PRODUCT
 productRoute.put("/:id", protect, admin, asyncHandler(
     async (req, res) => {
         const { name, price, description, image, countInStock } = req.body;
@@ -144,5 +144,8 @@ productRoute.put("/:id", protect, admin, asyncHandler(
         }
     }
 ));
+
+
+
 
 export default productRoute;
