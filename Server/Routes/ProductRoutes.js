@@ -18,8 +18,9 @@ productRoute.get("/", asyncHandler(
             },
         }
             : {};
+        const category = req.query.category ? { category: req.query.category } : {};
         const count = await Product.countDocuments({ ...keyword });
-        const products = await Product.find({ ...keyword })
+        const products = await Product.find({ ...keyword, ...category })
             .limit(pageSize)
             .skip(pageSize * (page - 1)).sort({ _id: -1 });
         res.json({ products, page, pages: Math.ceil(count / pageSize) });
@@ -100,14 +101,14 @@ productRoute.delete("/:id", protect, admin, asyncHandler(
 // CREATE PRODUCT
 productRoute.post("/", protect, admin, asyncHandler(
     async (req, res) => {
-        const { name, price, description, image, countInStock } = req.body;
+        const { name, price, description, category, image, countInStock } = req.body;
         const productExist = await Product.findOne({ name });
         if (productExist) {
             res.status(400);
             throw new Error("Product name already exist");
         } else {
             const product = new Product({
-                name, price, description, image, countInStock,
+                name, price, description, category, image, countInStock,
                 user: req.user._id,
             });
             if (product) {
@@ -126,12 +127,13 @@ productRoute.post("/", protect, admin, asyncHandler(
 // UPDATE PRODUCT
 productRoute.put("/:id", protect, admin, asyncHandler(
     async (req, res) => {
-        const { name, price, description, image, countInStock } = req.body;
+        const { name, price, description, category, image, countInStock } = req.body;
         const product = await Product.findById(req.params.id);
         if (product) {
             product.name = name || product.name;
             product.price = price || product.price;
             product.description = description || product.description;
+            product.category = category || product.category;
             product.image = image || product.image;
             product.countInStock = countInStock || product.countInStock;
 

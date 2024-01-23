@@ -8,6 +8,7 @@ import Banner from "./homeComponents/Banner";
 const Header = () => {
 
   const [keyword, setKeyword] = useState('');
+
   const dispatch = useDispatch();
   let history = useHistory();
 

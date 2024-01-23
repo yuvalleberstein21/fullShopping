@@ -127,6 +127,27 @@ textarea:focus {
 .sidebar_item {
   margin-bottom: 35px;
 }
+.category {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+.category h3 {
+  font-weight: bold;
+}
+.category button {
+  font-weight: 200;
+  font-size: 12px;
+  border: 2px solid black;
+  background-color: #00000000;
+}
+.category button:hover {
+  border: 2px solid black;
+  background-color: #000000;
+  color: white;
+  transition: 0.3s;
+}
+
 .sidebar_item h4 {
   color: #1c1c1c;
   font-weight: bold;
@@ -227,12 +248,13 @@ textarea:focus {
 }
 .banner-section {
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.226), rgba(0, 0, 0, 0.226)),
-    url('./components/homeComponents/cosmetic-bottle-with-pump-and-paper-box-mockups-on-stone-front-view.jpg');
-
+    url('./components/homeComponents/cosmetic-bottle-with-pump-and-paper-box-mockups-on-stone-front-view.jpg'),
+    center;
   height: 630px;
   margin-top: 10px;
   margin-bottom: 10px;
   /* Set a specific height */
+
   min-height: 550px;
 
   /* Create the parallax scrolling effect */

@@ -4,6 +4,7 @@ const products = [
     image: "/images/cosmetics1.jpg",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
+    category: "skincare",
     price: 89,
     countInStock: 3,
     rating: 4,
@@ -14,6 +15,7 @@ const products = [
     image: "/images/cosmetics2.jpg",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
+    category: "skincare",
     price: 599,
     countInStock: 10,
     rating: 2,
@@ -24,6 +26,7 @@ const products = [
     image: "/images/cosmetics3.jpg",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
+    category: "skincare",
     price: 929,
     countInStock: 0,
     rating: 3.5,
@@ -34,6 +37,7 @@ const products = [
     image: "/images/cosmetics4.jpg",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
+    category: "haircare",
     price: 399,
     countInStock: 10,
     rating: 5,
@@ -44,6 +48,7 @@ const products = [
     image: "/images/cosmetics5.jpg",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
+    category: "haircare",
     price: 49,
     countInStock: 7,
     rating: 2,
@@ -54,6 +59,7 @@ const products = [
     image: "/images/cosmetics6.jpg",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
+    category: "fragrance",
     price: 29,
     countInStock: 0,
     rating: 0,
@@ -64,6 +70,7 @@ const products = [
     image: "/images/cosmetics7.jpg",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
+    category: "fragrance",
     price: 124,
     countInStock: 15,
     rating: 5,

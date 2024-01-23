@@ -33,6 +33,10 @@ const productSchema = mongoose.Schema({
         type: String,
         require: true,
     },
+    category: {
+        type: String,
+        require: true,
+    },
     reviews: [reviewsSchema],
     rating: {
         type: Number,

@@ -6,18 +6,19 @@ import { PRODUCT_CREATE_REVIEW_FAIL, PRODUCT_CREATE_REVIEW_REQUEST, PRODUCT_CREA
 export const productListReducer = (state = { products: [] }, action) => {
     switch (action.type) {
         case PRODUCT_LIST_REQUEST:
-            return { loading: true, products: [] };
+            return { loading: true, products: [], category: action.payload.category };
 
         case PRODUCT_LIST_SUCCESS:
             return {
                 loading: false,
                 pages: action.payload.pages,
                 page: action.payload.page,
-                products: action.payload.products
+                products: action.payload.products,
+                category: action.payload.category,
             };
 
         case PRODUCT_LIST_FAIL:
-            return { loading: false, error: action.payload };
+            return { loading: false, error: action.payload, category: action.payload.category };
 
         default:
             return state;
@@ -42,7 +43,7 @@ export const productDetailsReducer = (state = { product: { reviews: [] } }, acti
     }
 }
 
-// SINGLE PRODUCT
+// CREATE REVIEW PRODUCT
 export const productCreateReviewReducer = (state = {}, action) => {
     switch (action.type) {
         case PRODUCT_CREATE_REVIEW_REQUEST:
